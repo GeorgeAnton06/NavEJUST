@@ -1,0 +1,82 @@
+<!-- Copyright © 2025 George Anton. All Rights Reserved.
+     Authorized use only for Egypt-Japan University of Science and Technology. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EJUST Labs</title>
+    <link rel="stylesheet" href="stylel.css">
+    <style>
+        .dropdown-container {
+            display: none;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Menu -->
+    <button id="menuToggle">&#9776;</button>
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+        <a href="../../index.html">Home</a>
+        <a href="../../Sidebar/Map/map.html" onclick="navigateTo('map')">Map</a>
+        <a href="../../Sidebar/Prof/prof.html" onclick="navigateTo('professors')">Professors Offices</a>
+        <a href="../../Sidebar/Labs/lab.html" onclick="navigateTo('labs')">Labs</a>
+        <a href="../../Sidebar/restaurant/restaurant.html" onclick="navigateTo('restaurants')">Restaurants</a>
+        <button class="dropdown-btn" onclick="toggleDropdown()">Buildings</button>
+        <div class="dropdown-container" id="buildingDropdown">
+            <a href="../../Buildings/B7/b7.html">B7</a>
+            <a href="../../Buildings/B8/b8.html">B8</a>
+            <a href="../../Buildings/B9/b9.html">B9</a>
+            <a href="../../Buildings/B10/b10.html">B10</a>
+            <a href="../../Buildings/COE/coe.html">COE</a>
+        </div>
+    </div>
+    
+    <div class="header-image">
+        <div class="fade"></div>
+    </div>
+    <h1 class="page-title">EJUST Labs</h1>
+         <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Our Campus</h4>
+                <p>P.O. Box 179, New Borg El-Arab City<br>
+                Postal Code 21934, Alexandria, Egypt<br>
+                Phone: 16448<br>
+                Fax: 03-4600004</p>
+            </div>
+            <div class="footer-section">
+                <h4>Business Hours</h4>
+                <p>Sunday - Thursday<br>
+                09:00 am - 04:00 pm</p>
+            </div>
+            <div class="footer-section">
+                <h4>Cairo Office</h4>
+                <p>Concordia Building, B2111, Smart Village,<br>
+                Cairo-Alex Road.<br>
+                Postal Code 12577, Giza, Egypt<br>
+                Phone: +2 35371712 / 35371713</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made By EJUST Students for EJUST students </p>
+        </div>
+    </footer>
+    <script src="../../script.js"></script>
+    <script>
+        function toggleDropdown() {
+            let dropdown = document.getElementById("buildingDropdown");
+            if (dropdown.style.maxHeight === "0px" || dropdown.style.maxHeight === "") {
+                dropdown.style.display = "block";
+                dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+            } else {
+                dropdown.style.maxHeight = "0";
+                setTimeout(() => dropdown.style.display = "none", 300);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+
+/* Copyright © 2025 George Anton. All Rights Reserved.
+   Authorized use only for Egypt-Japan University of Science and Technology. */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main content container structure */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    flex: 1;
+}
+
+/* Sidebar Menu */
+#menuToggle {
+    font-size: 24px;
+    background: #EC0E16;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 3;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-shadow: 2px 2px 3px black;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #EC0E16;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 2;
+}
+
+.sidebar a, .dropdown-btn {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    text-shadow: 2px 2px 3px black;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sidebar a:hover, .dropdown-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown Container (Hidden by Default) */
+.dropdown-container {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 15px;
+}
+
+.sidebar .dropdown-btn.active + .dropdown-container {
+    display: block;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Fixed-size header image that doesn't disappear */
+.header-image {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 50vh; /* Adjust as needed */
+    background: url('cover.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: 0;
+}
+
+.fade {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 100%);
+}
+
+/* Content area */
+.content-area {
+    position: relative;
+    background-color: white;
+    z-index: 1;
+}
+
+.page-title {
+    color: red;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px black;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 5%;
+}
+
+h2 {
+    font-size: 25px;
+    margin-left: 5%;
+}
+
+#ov {
+    font-size: 17px;
+    padding-left: 5%;
+    width: 50%;
+    line-height: 30px;
+}
+.buttex{
+    margin-left:5%;
+
+}
+.b8-btn {
+  background: #EC0E16;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 30px 0 30px 5%;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+  transition: background 0.2s;
+}
+.b8-btn:hover {
+  background: #b80c12;
+}
+.b8-popup {
+  position: absolute;
+  left: 5%;
+  top: 120px;
+  background: #fff;
+  border: 2px solid #EC0E16;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(44,0,0,0.15);
+  padding: 24px 32px;
+  z-index: 100;
+  min-width: 340px;
+}
+.b8-popup table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.b8-popup th, .b8-popup td {
+  border: 1px solid #ddd;
+  padding: 8px 14px;
+  text-align: left;
+}
+.b8-popup th {
+  background: #EC0E16;
+  color: #fff;
+  font-weight: bold;
+}
+.b8-popup tr:nth-child(even) {
+  background: #f9f9f9;
+}
+.b8-table-container {
+  opacity: 0;
+  transition: opacity 0.5s;
+  display: none; /* Hidden by default */
+  margin: 40px 5% 30px 5%;
+  background: #fff;
+  border: 2px solid #EC0E16;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(44,0,0,0.08);
+  padding: 24px 32px;
+  width: 80%;
+  text-align: center;
+}
+
+.b8-table-container.fade-in {
+  display: block;
+  opacity: 1;
+}
+
+.b8-table-container.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+
+.b8-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.b8-table-container th, .b8-table-container td {
+  border: 1px solid #ddd;
+  padding: 8px 14px;
+  text-align: left;
+}
+
+.b8-table-container th {
+  background: #EC0E16;
+  color: #fff;
+  font-weight: bold;
+}
+
+.b8-table-container tr:nth-child(even) {
+  background: #f9f9f9;
+}
+/* Search container styling */
+.search-container {
+    margin: 20px 5%;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#professorSearch {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+#professorSearch:focus {
+    border-color: #EC0E16;
+    outline: none;
+}
+/* Google-like autocomplete styling */
+.google-autocomplete-results {
+    position: absolute;
+    background: white;
+    border: 1px solid #dfe1e5;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
+    z-index: 999;
+    display: none;
+    width: 80%;
+    max-width: 600px;
+    margin-top: -1px;
+    padding: 8px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.autocomplete-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.autocomplete-item:hover {
+    background-color: #f1f1f1;
+}
+
+.autocomplete-item.active {
+    background-color: #eee;
+}
+
+.autocomplete-item i {
+    color: #9aa0a6;
+    margin-right: 12px;
+}
+
+.autocomplete-item .suggestion-text {
+    flex-grow: 1;
+}
+
+/* Autocomplete styling */
+.search-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.autocomplete-results {
+    position: absolute;
+    border: 1px solid #ddd;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.autocomplete-item:hover {
+    background-color: #f1f1f1;
+}
+
+.autocomplete-item.active {
+    background-color: #e9e9e9;
+}
+/* Google-like autocomplete styling */
+#autocompleteResults {
+    position: absolute;
+    background: white;
+    border: 1px solid #dfe1e5;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
+    z-index: 999;
+    display: none;
+    width: 80%;
+    max-width: 600px;
+    margin-top: -1px;
+    padding: 8px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.autocomplete-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.autocomplete-item:hover {
+    background-color: #f1f1f1;
+}
+
+.autocomplete-item.active {
+    background-color: #eee;
+}
+
+.autocomplete-item i {
+    color: #9aa0a6;
+    margin-right: 12px;
+}
+
+.autocomplete-item .suggestion-text {
+    flex-grow: 1;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    width: 100%; /* Ensure the footer spans the full width */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 20px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+    background-color: #111111;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-weight: bold;
+}

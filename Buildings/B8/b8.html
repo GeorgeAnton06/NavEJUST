@@ -1,0 +1,110 @@
+<!-- Copyright © 2025 George Anton. All Rights Reserved.
+     Authorized use only for Egypt-Japan University of Science and Technology. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B8</title>
+    <link rel="stylesheet" href="b8.css">
+    <style>
+        .dropdown-container {
+            display: none;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="page-container">
+        <!-- Sidebar Menu -->
+        <button id="menuToggle">&#9776;</button>
+        <div id="sidebar" class="sidebar">
+            <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+            <a href="../../index.html">Home</a>
+            <a href="../../Sidebar/Map/map.html" onclick="navigateTo('map')">Map</a>
+            <a href="../../Sidebar/Prof/prof.html" onclick="navigateTo('professors')">Professors Offices</a>
+            <a href="../../Sidebar/Labs/lab.html" onclick="navigateTo('labs')">Labs</a>
+            <a href="../../Sidebar/restaurant/restaurant.html" onclick="navigateTo('restaurants')">Restaurants</a>
+            <button class="dropdown-btn" onclick="toggleDropdown()">Buildings</button>
+            <div class="dropdown-container" id="buildingDropdown">
+                <a href="../../Buildings/B7/b7.html">B7</a>
+                <a href="../../Buildings/B9/b9.html">B9</a>
+                <a href="../../Buildings/B10/b10.html">B10</a>
+                <a href="../../Buildings/COE/coe.html">COE</a>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="header-image">
+                <div class="fade"></div>
+            </div>
+            
+            <div class="content-area">
+                <h1 class="page-title">B8</h1>
+                <h2>Overview</h2>
+                <div id="ov">
+                <p>Welcome to B8 !!
+                    <br>
+                    The B8 building is the central hub for the Faculty of Engineering at E-JUST, featuring lecture halls, modern labs, and faculty offices. It supports hands-on learning and research in fields
+                    <br>
+                    <b>Opening Hours:</b> Sunday to Thursday, 9:00 AM – 3:45 PM
+                </p>
+                </div>
+            <h2>Want to learn more about Professors here?</h2>
+            <div class="search-container">
+                <input type="text" id="professorSearch" placeholder="Search for professors...">
+                <!-- Add this right after your search input field -->
+<div id="autocompleteResults" class="google-autocomplete-results"></div>
+
+                <button id="searchBtn" class="b8-btn">Search</button>
+            </div>
+            
+            <button id="displayProfessorsBtn" class="b8-btn">Show All Professors</button>
+            <div id="professorsTableContainer" class="b8-table-container"></div>           
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h4>Our Campus</h4>
+                    <p>P.O. Box 179, New Borg El-Arab City<br>
+                    Postal Code 21934, Alexandria, Egypt<br>
+                    Phone: 16448<br>
+                    Fax: 03-4600004</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Business Hours</h4>
+                    <p>Sunday - Thursday<br>
+                    09:00 am - 04:00 pm</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Cairo Office</h4>
+                    <p>Concordia Building, B2111, Smart Village,<br>
+                    Cairo-Alex Road.<br>
+                    Postal Code 12577, Giza, Egypt<br>
+                    Phone: +2 35371712 / 35371713</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made By EJUST Students for EJUST students </p>
+            </div>
+        </footer>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="B8.js"></script>
+
+    <script>
+        function toggleDropdown() {
+            let dropdown = document.getElementById("buildingDropdown");
+            if (dropdown.style.maxHeight === "0px" || dropdown.style.maxHeight === "") {
+                dropdown.style.display = "block";
+                dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+            } else {
+                dropdown.style.maxHeight = "0";
+                setTimeout(() => dropdown.style.display = "none", 300);
+            }
+        }
+    </script>
+</body>
+</html>

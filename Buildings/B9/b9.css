@@ -1,0 +1,178 @@
+/* Copyright © 2025 George Anton. All Rights Reserved.
+   Authorized use only for Egypt-Japan University of Science and Technology. */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: white;
+}
+html, body {
+    height: 100%; /* Ensure the body and html take up the full height of the viewport */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+/* Sidebar Menu */
+#menuToggle {
+    font-size: 24px;
+    background: #EC0E16;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 3;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-shadow: 2px 2px 3px black;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #EC0E16;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 2;
+}
+
+.sidebar a, .dropdown-btn {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    text-shadow: 2px 2px 3px black;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sidebar a:hover, .dropdown-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown Container (Hidden by Default) */
+.dropdown-container {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 15px;
+}
+
+.sidebar .dropdown-btn.active + .dropdown-container {
+    display: block;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.header-image {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    background: url('cover.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.fade {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 100%);
+}
+
+.page-title {
+    color: red;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px black;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 7%;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    width: 100%; /* Ensure the footer spans the full width */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 20px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+    background-color: #111111;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-weight: bold;
+}

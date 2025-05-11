@@ -1,0 +1,62 @@
+<!-- Copyright © 2025 George Anton. All Rights Reserved.
+     Authorized use only for Egypt-Japan University of Science and Technology. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NavEJUST</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="mlogo">
+        <img src="NavEjust.png" alt="Logo" width="280px" height="87px">    
+    </div>
+    
+    <!-- Hamburger Menu Button -->
+    <button id="menuToggle">&#9776;</button>
+    
+    <!-- Sidebar Menu -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+        <a href="./Sidebar/Map/map.html" onclick="navigateTo('map')">Map</a>
+        <a href="./Sidebar/Prof/prof.html" onclick="navigateTo('professors')">Professors Offices</a>
+        <a href="./Sidebar/Labs/lab.html" onclick="navigateTo('labs')">Labs</a>
+        <a href="./Sidebar/restaurant/restaurant.html" onclick="navigateTo('restaurants')">Restaurants</a>
+    </div>
+      <div id="maincampuscontent">
+        <div id="mainbuttons">
+            <button onclick="location.href='./Sidebar/Labs/lab.html'" class="home-button">Labs</button>
+            <button onclick="location.href='./Sidebar/Map/map.html'" class="home-button">Maps</button>
+            <button onclick="location.href='./Sidebar/Prof/prof.html'" class="home-button">Professors Offices</button>
+            <button onclick="location.href='./Sidebar/restaurant/restaurant.html'" class="home-button">Restaurants</button>
+        </div> <!-- ✅ Kept your existing div -->
+    </div>
+     <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Our Campus</h4>
+                <p>P.O. Box 179, New Borg El-Arab City<br>
+                Postal Code 21934, Alexandria, Egypt<br>
+                Phone: 16448<br>
+                Fax: 03-4600004</p>
+            </div>
+            <div class="footer-section">
+                <h4>Business Hours</h4>
+                <p>Sunday - Thursday<br>
+                09:00 am - 04:00 pm</p>
+            </div>
+            <div class="footer-section">
+                <h4>Cairo Office</h4>
+                <p>Concordia Building, B2111, Smart Village,<br>
+                Cairo-Alex Road.<br>
+                Postal Code 12577, Giza, Egypt<br>
+                Phone: +2 35371712 / 35371713</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made By EJUST Students for EJUST students </p>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>
