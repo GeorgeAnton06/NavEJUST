@@ -7,12 +7,14 @@
     <title>Buildings</title>
     <link rel="stylesheet" href="stylel.css">
     <style>
-        .dropdown-container {
-            display: none;
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.3s ease-out;
-        }
+/* Fix the dropdown CSS: */
+.dropdown-container {
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+}
+
     </style>
 </head>
 <body>
@@ -39,7 +41,21 @@
         <div class="fade"></div>
     </div>
     <h1 class="page-title">Buildings</h1>
-    
+<!-- For the buttons section, fix the links: -->
+<div id="mainbuttons">
+    <div class="button-column">
+        <button onclick="location.href='./B7/b7.html'" class="home-button">B7</button>
+        <button onclick="location.href='./B9/b9.html'" class="home-button">B9</button>
+    </div>
+    <div class="button-column">
+        <button onclick="location.href='./B8/b8.html'" class="home-button">B8</button>
+        <button onclick="location.href='./B10/b10.html'" class="home-button">B10</button>
+    </div>
+    <div class="button-column tall-button">
+        <button onclick="location.href='./COE/coe.html'" class="home-button buildings-button">COE</button>
+    </div>
+</div>
+
          <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -66,18 +82,46 @@
             <p>Made By EJUST Students for EJUST students </p>
         </div>
     </footer>
-    <script src="../../script.js"></script>
-    <script>
-        function toggleDropdown() {
-            let dropdown = document.getElementById("buildingDropdown");
-            if (dropdown.style.maxHeight === "0px" || dropdown.style.maxHeight === "") {
-                dropdown.style.display = "block";
-                dropdown.style.maxHeight = dropdown.scrollHeight + "px";
-            } else {
-                dropdown.style.maxHeight = "0";
-                setTimeout(() => dropdown.style.display = "none", 300);
-            }
+<script src="../../script.js"></script>
+<script>
+    // Make sure the menuToggle button has the correct event listener
+    document.getElementById("menuToggle").addEventListener("click", toggleSidebar);
+    
+    // Ensure the sidebar toggle function works correctly
+    function toggleSidebar() {
+        let sidebar = document.getElementById("sidebar");
+        if (sidebar.style.width === "250px") {
+            sidebar.style.width = "0";
+        } else {
+            sidebar.style.width = "250px";
         }
-    </script>
+    }
+    
+    // Function for the dropdown within the sidebar
+    function toggleDropdown() {
+        let dropdown = document.getElementById("buildingDropdown");
+        if (dropdown.style.maxHeight === "0px" || dropdown.style.maxHeight === "") {
+            dropdown.style.display = "block";
+            dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+        } else {
+            dropdown.style.maxHeight = "0";
+            setTimeout(() => {
+                if (dropdown.style.maxHeight === "0px") {
+                    dropdown.style.display = "none";
+                }
+            }, 300);
+        }
+    }
+    
+    // Close sidebar when clicking outside
+    document.addEventListener("click", function(event) {
+        let sidebar = document.getElementById("sidebar");
+        let menuButton = document.getElementById("menuToggle");
+        if (!sidebar.contains(event.target) && event.target !== menuButton) {
+            sidebar.style.width = "0";
+        }
+    });
+</script>
+
 </body>
 </html>
