@@ -1,28 +1,40 @@
 /* Copyright © 2025 George Anton. All Rights Reserved.
    Authorized use only for Egypt-Japan University of Science and Technology. */
-/* Updated style.css */
+/* Updated style.css with mobile responsiveness */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
-    height: 100%; /* Ensure the body and html take up the full height of the viewport */
-    margin: 0;
-    padding: 0;
+    height: 100%;
     display: flex;
     flex-direction: column;  
 }
+
 #mlogo {
     text-align: center;
-    padding: 20px;
-    margin: 20px;
+    padding: 15px;
+    margin: 10px;
+}
+
+#mlogo img {
+    max-width: 100%;
+    height: auto;
 }
 
 #maincampuscontent {
     background-color: #ffffff;
     border-radius: 5px;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Hamburger Menu Button */
@@ -56,9 +68,9 @@ html, body {
 }
 
 .sidebar a {
-    padding: 10px 15px;
+    padding: 15px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     display: block;
     transition: 0.3s;
@@ -86,8 +98,18 @@ html, body {
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
     flex-wrap: wrap;
-    margin-top: 20px;
+}
+
+.button-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+    min-width: 250px;
 }
 
 .home-button {
@@ -101,21 +123,33 @@ html, body {
     cursor: pointer;
     text-shadow: 1px 1px 2px black;
     transition: all 0.3s ease-in-out;
+    height: 60px;
+    width: 100%;
 }
 
-.building-button:hover {
+.buildings-button {
+    height: 135px;
+}
+
+.tall-button {
+    height: 100%;
+    display: flex;
+}
+
+.home-button:hover {
     background: white;
     color: #EC0E16;
     border: 2px solid #EC0E16;
 }
+
 footer {
     background-color: #333;
     color: #ffffff;
     padding: 20px 0;
     font-family: Arial, sans-serif;
     font-size: 14px;
-    margin-top: auto; /* Pushes the footer to the bottom */
-    width: 100%; /* Ensure the footer spans the full width */
+    margin-top: auto;
+    width: 100%;
 }
 
 .footer-container {
@@ -173,4 +207,91 @@ footer {
 .footer-bottom p {
     margin: 5px 0;
     font-weight: bold;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    #mlogo {
+        padding: 10px;
+        margin: 5px;
+    }
+    
+    #mlogo img {
+        width: 200px;
+        height: auto;
+    }
+    
+    #menuToggle {
+        font-size: 20px;
+        padding: 4px 8px;
+    }
+    
+    .sidebar {
+        padding-top: 50px;
+    }
+    
+    .sidebar a {
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    #mainbuttons {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .button-column {
+        width: 100%;
+        min-width: unset;
+    }
+    
+    .home-button {
+        font-size: 16px;
+        padding: 10px;
+        height: 50px;
+    }
+    
+    .buildings-button {
+        height: 50px;
+    }
+    
+    .tall-button {
+        height: auto;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+        text-align: center;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    #mlogo img {
+        width: 180px;
+    }
+    
+    .home-button {
+        font-size: 14px;
+        padding: 8px;
+        height: 45px;
+    }
+    
+    .sidebar a {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .footer-section h4 {
+        font-size: 14px;
+    }
+    
+    .footer-section p {
+        font-size: 12px;
+    }
 }
