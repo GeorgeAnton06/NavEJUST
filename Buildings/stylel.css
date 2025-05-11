@@ -108,6 +108,82 @@ html, body {
     text-shadow: 2px 2px 4px black;
     margin-top: 20px;
 }
+#mainbuttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.button-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.home-button {
+    background: #EC0E16;
+    color: white;
+    border: 2px solid black;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px black;
+    transition: all 0.3s ease-in-out;
+    height: 60px;
+    width: 100%;
+}
+
+.buildings-button {
+    height: 135px;
+}
+
+.tall-button {
+    height: 100%;
+    display: flex;
+}
+
+.home-button:hover {
+    background: white;
+    color: #EC0E16;
+    border: 2px solid #EC0E16;
+}
+
+/* Mobile Responsiveness for buttons */
+@media screen and (max-width: 768px) {
+    #mainbuttons {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .button-column {
+        width: 100%;
+        min-width: unset;
+    }
+    
+    .home-button {
+        font-size: 16px;
+        padding: 10px;
+        height: 50px;
+    }
+    
+    .buildings-button {
+        height: 50px;
+    }
+    
+    .tall-button {
+        height: auto;
+    }
+}
+
 footer {
     background-color: #333;
     color: #fff;
