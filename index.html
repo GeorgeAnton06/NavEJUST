@@ -4,12 +4,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NavEJUST</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div id="mlogo">
-        <img src="NavEjust.png" alt="Logo" width="280px" height="87px">    
+        <img src="NavEjust.png" alt="Logo" width="280" height="87">    
     </div>
     
     <!-- Hamburger Menu Button -->
@@ -21,17 +22,27 @@
         <a href="./Sidebar/Map/map.html" onclick="navigateTo('map')">Map</a>
         <a href="./Sidebar/Prof/prof.html" onclick="navigateTo('professors')">Professors Offices</a>
         <a href="./Sidebar/Labs/lab.html" onclick="navigateTo('labs')">Labs</a>
-        <a href="./Sidebar/Restaurant/restaurant.html" onclick="navigateTo('restaurants')">Restaurants</a>
+        <a href="./Sidebar/restaurant/restaurant.html" onclick="navigateTo('restaurants')">Restaurants</a>
+        <a href="./Sidebar/Buildings/buildings.html" onclick="navigateTo('buildings')">Buildings</a>
     </div>
-      <div id="maincampuscontent">
+    
+    <div id="maincampuscontent">
         <div id="mainbuttons">
-            <button onclick="location.href='./Sidebar/Labs/lab.html'" class="home-button">Labs</button>
-            <button onclick="location.href='./Sidebar/Map/map.html'" class="home-button">Maps</button>
-            <button onclick="location.href='./Sidebar/Prof/prof.html'" class="home-button">Professors Offices</button>
-            <button onclick="location.href='./Sidebar/restaurant/restaurant.html'" class="home-button">Restaurants</button>
-        </div> <!-- ✅ Kept your existing div -->
+            <div class="button-column">
+                <button onclick="location.href='./Sidebar/Labs/lab.html'" class="home-button">Labs</button>
+                <button onclick="location.href='./Sidebar/Map/map.html'" class="home-button">Maps</button>
+            </div>
+            <div class="button-column">
+                <button onclick="location.href='./Sidebar/Prof/prof.html'" class="home-button">Professors Offices</button>
+                <button onclick="location.href='./Sidebar/restaurant/restaurant.html'" class="home-button">Restaurants</button>
+            </div>
+            <div class="button-column tall-button">
+                <button onclick="location.href='./Sidebar/Buildings/buildings.html'" class="home-button buildings-button">Buildings</button>
+            </div>
+        </div>
     </div>
-     <footer>
+    
+    <footer>
         <div class="footer-container">
             <div class="footer-section">
                 <h4>Our Campus</h4>
