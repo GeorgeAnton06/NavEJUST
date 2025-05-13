@@ -184,22 +184,29 @@ html, body {
         height: auto;
     }
     
-    /* Fix for background image in mobile view */
+    /* Alternative approach: remove the header image and use a colored background instead */
     .header-image {
-        height: 30vh;
-        background-attachment: scroll;
-        background-position: center top;
-        background-size: 100% auto;
-        background-repeat: no-repeat;
+        display: none; /* Hide the problematic image */
     }
     
+    /* Add a colored background to the top of the page */
+    body:before {
+        content: "";
+        display: block;
+        height: 15vh;
+        background: linear-gradient(to bottom, #ffdddd, white);
+        margin-bottom: 10px;
+    }
+    
+    /* No need for fade with this approach */
     .fade {
-        height: 10vh;
+        display: none;
     }
     
     .page-title {
         font-size: 2rem;
         letter-spacing: 3px;
+        margin-top: 10px;
     }
     
     .footer-container {
@@ -233,11 +240,6 @@ html, body {
         font-size: 24px;
         top: 8px;
         right: 12px;
-    }
-    
-    /* Additional fixes for very small screens */
-    .header-image {
-        height: 25vh;
     }
 }
 
