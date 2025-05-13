@@ -184,21 +184,24 @@ html, body {
         height: auto;
     }
     
-    /* Additional mobile optimizations from index.html */
-    .page-title {
-        font-size: 2rem;
-        letter-spacing: 3px;
-    }
-    
+    /* Fix for background image in mobile view */
     .header-image {
         height: 30vh;
+        background-attachment: scroll;
+        background-position: center top;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
     }
     
     .fade {
         height: 10vh;
     }
     
-    /* Footer optimizations for mobile */
+    .page-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    
     .footer-container {
         flex-direction: column;
         text-align: center;
@@ -230,6 +233,11 @@ html, body {
         font-size: 24px;
         top: 8px;
         right: 12px;
+    }
+    
+    /* Additional fixes for very small screens */
+    .header-image {
+        height: 25vh;
     }
 }
 
