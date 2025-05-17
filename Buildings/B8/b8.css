@@ -244,24 +244,45 @@ h2 {
   background: #f9f9f9;
 }
 
-/* Updated search container styling */
+/* Search container - updated for horizontal layout on desktop */
 .search-container {
     margin: 20px 5%;
     display: flex;
-    flex-wrap: nowrap;
     align-items: center;
     max-width: 800px;
-    gap: 10px;
+    position: relative;
 }
 
+/* Position the autocomplete results correctly */
+.search-container {
+    position: relative;
+}
+
+#autocompleteResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: white;
+    border: 1px solid #dfe1e5;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
+    display: none;
+    margin-top: -1px;
+    padding: 8px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Search input styling */
 #professorSearch {
-    flex: 1;
+    width: 50%;
     padding: 12px;
     font-size: 16px;
     border: 2px solid #ddd;
     border-radius: 6px;
-    box-sizing: border-box;
-    min-width: 200px;
+    margin-right: 10px;
 }
 
 #professorSearch:focus {
@@ -269,28 +290,10 @@ h2 {
     outline: none;
 }
 
+/* Button styling for desktop */
 #searchBtn, #displayProfessorsBtn {
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-/* Google-like autocomplete styling */
-#autocompleteResults {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    border: 1px solid #dfe1e5;
-    border-radius: 0 0 24px 24px;
-    box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
-    z-index: 999;
-    display: none;
-    width: 100%;
-    margin-top: -1px;
-    padding: 8px 0;
-    max-height: 300px;
-    overflow-y: auto;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .autocomplete-item {
@@ -405,27 +408,25 @@ footer {
         height: 30vh;
     }
     
-    /* Match index.html button styling */
+    /* Updated mobile search container layout */
     .search-container {
-        margin: 15px 5%;
         flex-direction: column;
+        align-items: stretch;
         width: 90%;
-        gap: 10px;
     }
     
     #professorSearch {
         width: 100%;
-        border-radius: 6px;
+        margin-right: 0;
         margin-bottom: 10px;
         font-size: 16px;
         padding: 10px;
     }
     
-    /* Match index.html button styling */
     #searchBtn, #displayProfessorsBtn {
         width: 100%;
-        border-radius: 6px;
-        margin: 5px 0;
+        margin-right: 0;
+        margin-bottom: 10px;
         font-size: 16px;
         padding: 10px;
         height: 50px;
