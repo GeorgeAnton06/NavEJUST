@@ -53,15 +53,17 @@
                 </p>
                 </div>
             <h2>Want to learn more about Professors here?</h2>
-            <div class="search-container">
-                <input type="text" id="professorSearch" placeholder="Search for professors...">
-                <!-- Add this right after your search input field -->
-<div id="autocompleteResults" class="google-autocomplete-results"></div>
+<div class="search-container">
+    <div class="search-input-group">
+        <input type="text" id="professorSearch" placeholder="Search professors...">
+        <div id="autocompleteResults"></div>
+    </div>
+    <div class="button-group">
+        <button id="searchBtn" class="b8-btn">Search</button>
+        <button id="displayProfessorsBtn" class="b8-btn">Show All Professors</button>
+    </div>
+</div>
 
-                <button id="searchBtn" class="b8-btn">Search</button>
-            </div>
-            
-            <button id="displayProfessorsBtn" class="b8-btn">Show All Professors</button>
             <div id="professorsTableContainer" class="b8-table-container"></div>           
         <footer>
             <div class="footer-container">
