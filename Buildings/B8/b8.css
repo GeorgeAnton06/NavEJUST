@@ -500,7 +500,7 @@ footer {
     }
     
     /* Mobile button styling - matching reference exactly */
-    #searchBtn, #displayProfessorsBtn {
+    #searchBtn, #displayProfessorsBtn, .b8-btn {
         width: 100%;
         margin-right: 0;
         margin-bottom: 0;
@@ -558,10 +558,63 @@ footer {
 
 /* Small mobile devices - match reference */
 @media screen and (max-width: 480px) {
+    /* Logo sizing */
     #mlogo img {
         width: 180px;
     }
     
+    /* Button styling */
+    .b8-btn, 
+    #searchBtn, 
+    #displayProfessorsBtn {
+        font-size: 14px;
+        padding: 8px;
+        height: 45px;
+    }
+    
+    /* Search input */
+    #professorSearch {
+        font-size: 14px;
+        padding: 8px;
+        height: 45px;
+    }
+    
+    /* Sidebar navigation */
+    #menuToggle {
+        font-size: 18px;
+        padding: 3px 7px;
+    }
+    
+    .sidebar a, 
+    .dropdown-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    /* Footer elements */
+    .footer-section h4 {
+        font-size: 14px;
+    }
+    
+    .footer-section p,
+    .footer-section ul,
+    .footer-bottom p {
+        font-size: 12px;
+    }
+    
+    /* Table container */
+    .b8-table-container {
+        padding: 12px;
+        margin: 15px 5%;
+    }
+    
+    .b8-table-container th, 
+    .b8-table-container td {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+    
+    /* Page title and content */
     .page-title {
         font-size: 1.7rem;
         letter-spacing: 1px;
@@ -576,59 +629,14 @@ footer {
         line-height: 22px;
     }
     
-    .header-image {
-        height: 25vh;
-    }
-    
-    #menuToggle {
-        font-size: 18px;
-        padding: 3px 7px;
-    }
-    
-    .sidebar a, .dropdown-btn {
-        font-size: 14px;
-        padding: 10px;
-    }
-    
-    #professorSearch {
-        font-size: 14px;
-        padding: 8px;
-        height: 45px;
-    }
-    
-    #searchBtn, #displayProfessorsBtn {
-        font-size: 14px;
-        padding: 8px;
-        height: 45px;
-    }
-    
-    .b8-table-container {
-        padding: 10px;
-    }
-    
-    .b8-table-container th, 
-    .b8-table-container td {
-        padding: 5px 8px;
-        font-size: 12px;
-    }
-    
-    .footer-section h4 {
-        font-size: 14px;
-    }
-    
-    .footer-section p,
-    .footer-section ul,
-    .footer-bottom p {
-        font-size: 12px;
-    }
-    
+    /* Autocomplete items */
     .autocomplete-item {
         padding: 10px 15px;
         font-size: 14px;
     }
     
-    .b8-btn {
-        font-size: 1rem;
-        padding: 10px 20px;
+    /* Header image */
+    .header-image {
+        height: 25vh;
     }
 }
