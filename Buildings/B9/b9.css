@@ -1,18 +1,30 @@
-/* Copyright © 2025 George Anton. All Rights Reserved.
-   Authorized use only for Egypt-Japan University of Science and Technology. */
+/* Copyright © 2025 George Anton. All Rights Reserved.   Authorized use only for Egypt-Japan University of Science and Technology. */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    text-align: center;
     background-color: white;
-}
-html, body {
-    height: 100%; /* Ensure the body and html take up the full height of the viewport */
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
 }
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main content container structure */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    flex: 1;
+}
+
 /* Sidebar Menu */
 #menuToggle {
     font-size: 24px;
@@ -84,12 +96,15 @@ html, body {
     cursor: pointer;
 }
 
+/* Fixed-size header image that doesn't disappear */
 .header-image {
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 100%;
-    height: 40vh;
+    height: 50vh; /* Adjust as needed */
     background: url('cover.jpg') no-repeat center center;
     background-size: cover;
+    z-index: 0;
 }
 
 .fade {
@@ -100,6 +115,13 @@ html, body {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 100%);
 }
 
+/* Content area */
+.content-area {
+    position: relative;
+    background-color: white;
+    z-index: 1;
+}
+
 .page-title {
     color: red;
     font-size: 3rem;
@@ -108,8 +130,238 @@ html, body {
     text-shadow: 2px 2px 4px black;
     margin-top: 20px;
     text-align: left;
-    margin-left: 7%;
+    margin-left: 5%;
 }
+
+h2 {
+    font-size: 25px;
+    margin-left: 5%;
+}
+
+#ov {
+    font-size: 17px;
+    padding-left: 5%;
+    width: 50%;
+    line-height: 30px;
+}
+
+.buttex{
+    margin-left:5%;
+}
+
+.b8-btn {
+  background: #EC0E16;
+  color: #fff;
+  border: 2px solid black;
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
+  text-shadow: 1px 1px 2px black;
+  font-weight: bold;
+}
+
+.b8-btn:hover {
+  background: white;
+  color: #EC0E16;
+  border: 2px solid #EC0E16;
+}
+
+.b8-popup {
+  position: absolute;
+  left: 5%;
+  top: 120px;
+  background: #fff;
+  border: 2px solid #EC0E16;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(44,0,0,0.15);
+  padding: 24px 32px;
+  z-index: 100;
+  min-width: 340px;
+}
+
+.b8-popup table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.b8-popup th, .b8-popup td {
+  border: 1px solid #ddd;
+  padding: 8px 14px;
+  text-align: left;
+}
+
+.b8-popup th {
+  background: #EC0E16;
+  color: #fff;
+  font-weight: bold;
+}
+
+.b8-popup tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.b8-table-container {
+  opacity: 0;
+  transition: opacity 0.5s;
+  display: none; /* Hidden by default */
+  margin: 40px 5% 30px 5%;
+  background: #fff;
+  border: 2px solid #EC0E16;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(44,0,0,0.08);
+  padding: 24px 32px;
+  width: 80%;
+  text-align: center;
+}
+
+.b8-table-container.fade-in {
+  display: block;
+  opacity: 1;
+}
+
+.b8-table-container.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.b8-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.b8-table-container th, .b8-table-container td {
+  border: 1px solid #ddd;
+  padding: 8px 14px;
+  text-align: left;
+}
+
+.b8-table-container th {
+  background: #EC0E16;
+  color: #fff;
+  font-weight: bold;
+}
+
+.b8-table-container tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Search container - updated for horizontal layout on desktop */
+.search-container {
+    margin: 20px 5%;
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    position: relative;
+    gap: 15px; /* Add gap between elements */
+}
+
+/* Position the autocomplete results correctly */
+.search-input-group {
+    position: relative;
+    width: 50%;
+    min-width: 250px; /* Ensure minimum width */
+}
+
+/* Button container for desktop */
+.button-group {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    align-items: center;
+    margin-left: 15px;
+}
+
+/* Button styling for desktop */
+#searchBtn, #displayProfessorsBtn {
+    margin-right: 0; /* Remove right margin */
+    background: #EC0E16;
+    color: white;
+    border: 2px solid black;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px black;
+    transition: all 0.3s ease-in-out;
+    height: 40px; /* Match the search input height */
+    white-space: nowrap; /* Prevent text wrapping inside button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#searchBtn{
+    margin-right: 10px;
+}
+/* Search input styling */
+#professorSearch {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    height: 20px; /* Match button height */
+}
+
+#professorSearch:focus {
+    border-color: #EC0E16;
+    outline: none;
+}
+
+/* Button container for desktop */
+.button-group {
+    display: flex;
+    margin-left: 25px;
+}
+
+/* Button styling for desktop */
+#searchBtn, #displayProfessorsBtn {
+    margin-right: 10px;
+    background: #EC0E16;
+    color: white;
+    border: 2px solid black;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px black;
+    transition: all 0.3s ease-in-out;
+    height: 46px;
+}
+
+#searchBtn:hover, #displayProfessorsBtn:hover {
+    background: white;
+    color: #EC0E16;
+    border: 2px solid #EC0E16;
+}
+
+.autocomplete-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.autocomplete-item:hover {
+    background-color: #f1f1f1;
+}
+
+.autocomplete-item.active {
+    background-color: #eee;
+}
+
+.autocomplete-item i {
+    color: #9aa0a6;
+    margin-right: 12px;
+}
+
+.autocomplete-item .suggestion-text {
+    flex-grow: 1;
+}
+
 footer {
     background-color: #333;
     color: #fff;
@@ -175,4 +427,280 @@ footer {
 .footer-bottom p {
     margin: 5px 0;
     font-weight: bold;
+}
+
+/* Mobile responsiveness - completely revised based on reference CSS */
+@media screen and (max-width: 768px) {
+    /* General mobile adjustments */
+    * {
+        box-sizing: border-box;
+    }
+    
+    body, html {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Fix for mobile overflow issues */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Ensure content doesn't overflow */
+    .content-area {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    #ov {
+        width: 90%;
+        font-size: 16px;
+        line-height: 24px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    .header-image {
+        height: 30vh;
+    }
+    
+    /* Mobile menu styling */
+    #menuToggle {
+        font-size: 20px;
+        padding: 4px 8px;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .sidebar {
+        padding-top: 50px;
+    }
+    
+    .sidebar a, .dropdown-btn {
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    /* Mobile search container layout */
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+        width: 90%;
+        padding: 0 10px;
+        margin: 15px auto;
+        gap: 10px;
+        max-width: 100%;
+    }
+    
+    .search-input-group {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #professorSearch {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 8px;
+        height: 50px;
+    }
+    
+    /* Mobile button styling - matching reference exactly */
+    #searchBtn, #displayProfessorsBtn, .b8-btn {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0;
+        font-size: 16px;
+        padding: 10px;
+        height: 50px;
+        border-radius: 8px;
+        text-shadow: 1px 1px 2px black;
+        border: 2px solid black;
+        background: #EC0E16;
+        color: white;
+        font-weight: bold;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+    }
+    
+    /* Improve table scrolling on mobile */
+    .b8-table-container {
+        margin: 20px 5%;
+        padding: 15px;
+        width: 90%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 8px;
+    }
+    
+    .b8-table-container th, 
+    .b8-table-container td {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    
+    /* Mobile footer styling */
+    .footer-container {
+        flex-direction: column;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+        text-align: center;
+        margin: 15px 0;
+    }
+    .footer-section h4 {
+        font-size: 16px;
+    }
+    
+    .footer-section p,
+    .footer-section ul {
+        font-size: 14px;
+    }
+    
+    .footer-bottom {
+        padding: 10px;
+    }
+    
+    /* Fix for iOS Safari issues */
+    input, 
+    button {
+        -webkit-appearance: none;
+        border-radius: 8px;
+    }
+}
+
+/* Small mobile devices - match reference */
+@media screen and (max-width: 480px) {
+    /* Fix for very small screens */
+    html, body {
+        min-width: 320px; /* Prevent layout from breaking on very small screens */
+    }
+    
+    /* Logo sizing */
+    #mlogo img {
+        width: 180px;
+    }
+    
+    /* Button styling */
+    .b8-btn, 
+    #searchBtn, 
+    #displayProfessorsBtn {
+        font-size: 14px;
+        padding: 8px;
+        height: 45px;
+    }
+    
+    /* Search input */
+    #professorSearch {
+        font-size: 14px;
+        padding: 8px;
+        height: 45px;
+    }
+    
+    /* Sidebar navigation */
+    #menuToggle {
+        font-size: 18px;
+        padding: 3px 7px;
+    }
+    
+    .sidebar a, 
+    .dropdown-btn {
+        font-size: 14px;
+        padding: 10px;
+        min-height: 44px; /* Apple's recommended minimum touch target size */
+    }
+    
+    /* Footer elements */
+    .footer-section h4 {
+        font-size: 14px;
+    }
+    
+    .footer-section p,
+    .footer-section ul,
+    .footer-bottom p {
+        font-size: 12px;
+    }
+    
+    /* Table container */
+    .b8-table-container {
+        padding: 12px;
+        margin: 15px 5%;
+    }
+    
+    .b8-table-container th, 
+    .b8-table-container td {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+    
+    /* Page title and content */
+    .page-title {
+        font-size: 1.7rem;
+        letter-spacing: 1px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+    
+    #ov {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    
+    /* Autocomplete items */
+    .autocomplete-item {
+        padding: 10px 15px;
+        font-size: 14px;
+        min-height: 44px;
+    }
+    
+    /* Header image */
+    .header-image {
+        height: 25vh;
+    }
+    
+    /* Ensure popup doesn't overflow */
+    .b8-popup {
+        max-width: 90%;
+        left: 5%;
+        right: 5%;
+        min-width: unset;
+    }
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .header-image {
+        background-attachment: scroll; /* Fix for iOS background-attachment: fixed issues */
+    }
+    
+    /* Fix for iOS input zooming */
+    input[type="text"],
+    input[type="search"] {
+        font-size: 16px; /* Prevents iOS from zooming on input focus */
+    }
 }
