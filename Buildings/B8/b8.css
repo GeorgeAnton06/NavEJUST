@@ -152,17 +152,21 @@ h2 {
 .b8-btn {
   background: #EC0E16;
   color: #fff;
-  border: none;
+  border: 2px solid black;
   padding: 12px 28px;
   font-size: 1.2rem;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
-  transition: background 0.2s;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 1px 1px 2px black;
+  font-weight: bold;
 }
 
 .b8-btn:hover {
-  background: #b80c12;
+  background: white;
+  color: #EC0E16;
+  border: 2px solid #EC0E16;
 }
 
 .b8-popup {
@@ -282,7 +286,7 @@ h2 {
     padding: 12px;
     font-size: 16px;
     border: 2px solid #ddd;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 #professorSearch:focus {
@@ -301,7 +305,7 @@ h2 {
     margin-right: 10px;
     background: #EC0E16;
     color: white;
-    border: none;
+    border: 2px solid black;
     padding: 12px 20px;
     font-size: 18px;
     font-weight: bold;
@@ -309,6 +313,7 @@ h2 {
     cursor: pointer;
     text-shadow: 1px 1px 2px black;
     transition: all 0.3s ease-in-out;
+    height: 60px;
 }
 
 #searchBtn:hover, #displayProfessorsBtn:hover {
@@ -408,28 +413,61 @@ footer {
     font-weight: bold;
 }
 
-/* Mobile responsiveness - updated based on reference CSS */
+/* Mobile responsiveness - completely revised based on reference CSS */
 @media screen and (max-width: 768px) {
+    /* General mobile adjustments */
+    * {
+        box-sizing: border-box;
+    }
+    
+    body, html {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
     .page-title {
         font-size: 2rem;
         letter-spacing: 2px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
     
     h2 {
         font-size: 20px;
+        margin-bottom: 10px;
     }
     
     #ov {
         width: 90%;
         font-size: 16px;
         line-height: 24px;
+        padding-left: 5%;
+        padding-right: 5%;
     }
     
     .header-image {
         height: 30vh;
     }
     
-    /* Updated mobile search container layout */
+    /* Mobile menu styling */
+    #menuToggle {
+        font-size: 20px;
+        padding: 4px 8px;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .sidebar {
+        padding-top: 50px;
+    }
+    
+    .sidebar a, .dropdown-btn {
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    /* Mobile search container layout */
     .search-container {
         flex-direction: column;
         align-items: stretch;
@@ -437,6 +475,7 @@ footer {
         padding: 0 10px;
         margin: 15px auto;
         gap: 10px;
+        max-width: 100%;
     }
     
     .search-input-group {
@@ -456,9 +495,11 @@ footer {
         width: 100%;
         font-size: 16px;
         padding: 10px;
-        border-radius: 6px;
+        border-radius: 8px;
+        height: 50px;
     }
     
+    /* Mobile button styling - matching reference exactly */
     #searchBtn, #displayProfessorsBtn {
         width: 100%;
         margin-right: 0;
@@ -466,19 +507,31 @@ footer {
         font-size: 16px;
         padding: 10px;
         height: 50px;
-        border-radius: 6px;
+        border-radius: 8px;
         text-shadow: 1px 1px 2px black;
         border: 2px solid black;
+        background: #EC0E16;
+        color: white;
+        font-weight: bold;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
     }
     
+    /* Mobile table container */
     .b8-table-container {
         margin: 20px 5%;
         padding: 15px;
         width: 90%;
         overflow-x: auto;
+        border-radius: 8px;
     }
     
-    /* Match reference footer styling */
+    .b8-table-container th, 
+    .b8-table-container td {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    
+    /* Mobile footer styling */
     .footer-container {
         flex-direction: column;
     }
@@ -489,29 +542,47 @@ footer {
         margin: 15px 0;
     }
     
-    /* Match reference sidebar styling */
-    .sidebar {
-        width: 0;
-        padding-top: 50px;
-    }
-    
-    .sidebar a, .dropdown-btn {
+    .footer-section h4 {
         font-size: 16px;
-        padding: 12px;
     }
     
-    #menuToggle {
-        font-size: 20px;
-        padding: 4px 8px;
+    .footer-section p,
+    .footer-section ul {
+        font-size: 14px;
+    }
+    
+    .footer-bottom {
+        padding: 10px;
     }
 }
 
 /* Small mobile devices - match reference */
 @media screen and (max-width: 480px) {
-    #searchBtn, #displayProfessorsBtn {
+    #mlogo img {
+        width: 180px;
+    }
+    
+    .page-title {
+        font-size: 1.7rem;
+        letter-spacing: 1px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+    
+    #ov {
         font-size: 14px;
-        padding: 8px;
-        height: 45px;
+        line-height: 22px;
+    }
+    
+    .header-image {
+        height: 25vh;
+    }
+    
+    #menuToggle {
+        font-size: 18px;
+        padding: 3px 7px;
     }
     
     .sidebar a, .dropdown-btn {
@@ -519,22 +590,45 @@ footer {
         padding: 10px;
     }
     
+    #professorSearch {
+        font-size: 14px;
+        padding: 8px;
+        height: 45px;
+    }
+    
+    #searchBtn, #displayProfessorsBtn {
+        font-size: 14px;
+        padding: 8px;
+        height: 45px;
+    }
+    
+    .b8-table-container {
+        padding: 10px;
+    }
+    
+    .b8-table-container th, 
+    .b8-table-container td {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+    
     .footer-section h4 {
         font-size: 14px;
     }
     
-    .footer-section p {
+    .footer-section p,
+    .footer-section ul,
+    .footer-bottom p {
         font-size: 12px;
     }
-}
-
-/* Tablet responsiveness */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    #ov {
-        width: 70%;
+    
+    .autocomplete-item {
+        padding: 10px 15px;
+        font-size: 14px;
     }
     
-    .b8-table-container {
-        width: 90%;
+    .b8-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
     }
 }
