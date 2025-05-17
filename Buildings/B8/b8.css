@@ -254,8 +254,9 @@ h2 {
 }
 
 /* Position the autocomplete results correctly */
-.search-container {
+.search-input-group {
     position: relative;
+    width: 50%;
 }
 
 #autocompleteResults {
@@ -277,12 +278,11 @@ h2 {
 
 /* Search input styling */
 #professorSearch {
-    width: 50%;
+    width: 100%;
     padding: 12px;
     font-size: 16px;
     border: 2px solid #ddd;
     border-radius: 6px;
-    margin-right: 10px;
 }
 
 #professorSearch:focus {
@@ -290,9 +290,14 @@ h2 {
     outline: none;
 }
 
+/* Button container for desktop */
+.button-group {
+    display: flex;
+    margin-left: 10px;
+}
+
 /* Button styling for desktop */
 #searchBtn, #displayProfessorsBtn {
-    display: inline-block;
     margin-right: 10px;
 }
 
@@ -415,10 +420,19 @@ footer {
         width: 90%;
     }
     
+    .search-input-group {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
+    
     #professorSearch {
         width: 100%;
-        margin-right: 0;
-        margin-bottom: 10px;
         font-size: 16px;
         padding: 10px;
     }
