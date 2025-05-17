@@ -426,6 +426,18 @@ footer {
         flex-direction: column;
     }
     
+    /* Fix for mobile overflow issues */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Ensure content doesn't overflow */
+    .content-area {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
     .page-title {
         font-size: 2rem;
         letter-spacing: 2px;
@@ -489,6 +501,7 @@ footer {
         margin-left: 0;
         gap: 10px;
         width: 100%;
+        max-width: 100%;
     }
     
     #professorSearch {
@@ -516,12 +529,13 @@ footer {
         box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
     }
     
-    /* Mobile table container */
+    /* Improve table scrolling on mobile */
     .b8-table-container {
         margin: 20px 5%;
         padding: 15px;
         width: 90%;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         border-radius: 8px;
     }
     
@@ -541,7 +555,6 @@ footer {
         text-align: center;
         margin: 15px 0;
     }
-    
     .footer-section h4 {
         font-size: 16px;
     }
@@ -554,10 +567,22 @@ footer {
     .footer-bottom {
         padding: 10px;
     }
+    
+    /* Fix for iOS Safari issues */
+    input, 
+    button {
+        -webkit-appearance: none;
+        border-radius: 8px;
+    }
 }
 
 /* Small mobile devices - match reference */
 @media screen and (max-width: 480px) {
+    /* Fix for very small screens */
+    html, body {
+        min-width: 320px; /* Prevent layout from breaking on very small screens */
+    }
+    
     /* Logo sizing */
     #mlogo img {
         width: 180px;
@@ -589,6 +614,7 @@ footer {
     .dropdown-btn {
         font-size: 14px;
         padding: 10px;
+        min-height: 44px; /* Apple's recommended minimum touch target size */
     }
     
     /* Footer elements */
@@ -633,10 +659,32 @@ footer {
     .autocomplete-item {
         padding: 10px 15px;
         font-size: 14px;
+        min-height: 44px;
     }
     
     /* Header image */
     .header-image {
         height: 25vh;
+    }
+    
+    /* Ensure popup doesn't overflow */
+    .b8-popup {
+        max-width: 90%;
+        left: 5%;
+        right: 5%;
+        min-width: unset;
+    }
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .header-image {
+        background-attachment: scroll; /* Fix for iOS background-attachment: fixed issues */
+    }
+    
+    /* Fix for iOS input zooming */
+    input[type="text"],
+    input[type="search"] {
+        font-size: 16px; /* Prevents iOS from zooming on input focus */
     }
 }
