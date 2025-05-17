@@ -248,26 +248,20 @@ h2 {
 .search-container {
     margin: 20px 5%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     max-width: 800px;
     gap: 10px;
 }
 
-/* UPDATED: Search input and buttons layout for desktop */
-.search-input-group {
-    position: relative;
-    flex: 1;
-    min-width: 300px;
-}
-
 #professorSearch {
-    width: 100%;
+    flex: 1;
     padding: 12px;
     font-size: 16px;
     border: 2px solid #ddd;
     border-radius: 6px;
     box-sizing: border-box;
+    min-width: 200px;
 }
 
 #professorSearch:focus {
@@ -275,14 +269,9 @@ h2 {
     outline: none;
 }
 
-/* UPDATED: Button layout for desktop view */
-#searchBtn {
+#searchBtn, #displayProfessorsBtn {
     white-space: nowrap;
-    margin-right: 10px;
-}
-
-#displayProfessorsBtn {
-    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 /* Google-like autocomplete styling */
@@ -416,17 +405,12 @@ footer {
         height: 30vh;
     }
     
-    /* UPDATED: Mobile search container layout */
+    /* Match index.html button styling */
     .search-container {
         margin: 15px 5%;
         flex-direction: column;
         width: 90%;
         gap: 10px;
-    }
-    
-    .search-input-group {
-        width: 100%;
-        min-width: unset;
     }
     
     #professorSearch {
@@ -437,9 +421,8 @@ footer {
         padding: 10px;
     }
     
-    /* UPDATED: Mobile button layout - stacked and full width */
-    #searchBtn, 
-    #displayProfessorsBtn {
+    /* Match index.html button styling */
+    #searchBtn, #displayProfessorsBtn {
         width: 100%;
         border-radius: 6px;
         margin: 5px 0;
