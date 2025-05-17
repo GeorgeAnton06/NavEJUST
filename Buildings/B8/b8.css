@@ -313,7 +313,7 @@ h2 {
 /* Button container for desktop */
 .button-group {
     display: flex;
-    margin-left: 10px;
+    margin-left: 25px;
 }
 
 /* Button styling for desktop */
