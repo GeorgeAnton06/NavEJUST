@@ -10,20 +10,27 @@ document.addEventListener('DOMContentLoaded', function() {
     let allProfessors = []; // Store all professors data
     let currentFocus = -1; // Track keyboard navigation in autocomplete
 
-    // Toggle sidebar function
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        if (sidebar.style.width === "250px") {
-            sidebar.style.width = "0";
-        } else {
-            sidebar.style.width = "250px";
-        }
+// Toggle sidebar function
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar.style.width === "250px") {
+        sidebar.style.width = "0";
+    } else {
+        sidebar.style.width = "250px";
     }
+}
 
-    // Initialize sidebar toggle
-    if (document.getElementById('menuToggle')) {
-        document.getElementById('menuToggle').addEventListener('click', toggleSidebar);
-    }
+// Initialize sidebar toggle
+if (document.getElementById('menuToggle')) {
+    document.getElementById('menuToggle').addEventListener('click', toggleSidebar);
+}
+// Initialize close button
+if (document.querySelector('.close-btn')) {
+    document.querySelector('.close-btn').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.style.width = "0";
+    });
+}
 
     // Function to load professors data
     function loadProfessorsData() {
