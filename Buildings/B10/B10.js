@@ -34,7 +34,7 @@ if (document.querySelector('.close-btn')) {
 
     // Function to load professors data
     function loadProfessorsData() {
-        return fetch('B8.xlsx')
+        return fetch('B10.xlsx')
             .then(res => res.arrayBuffer())
             .then(data => {
                 const workbook = XLSX.read(data, { type: 'array' });
