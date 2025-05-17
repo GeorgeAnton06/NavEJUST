@@ -299,6 +299,22 @@ h2 {
 /* Button styling for desktop */
 #searchBtn, #displayProfessorsBtn {
     margin-right: 10px;
+    background: #EC0E16;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px black;
+    transition: all 0.3s ease-in-out;
+}
+
+#searchBtn:hover, #displayProfessorsBtn:hover {
+    background: white;
+    color: #EC0E16;
+    border: 2px solid #EC0E16;
 }
 
 .autocomplete-item {
@@ -392,7 +408,7 @@ footer {
     font-weight: bold;
 }
 
-/* Mobile responsiveness - updated to match index.html style */
+/* Mobile responsiveness - updated based on reference CSS */
 @media screen and (max-width: 768px) {
     .page-title {
         font-size: 2rem;
@@ -418,6 +434,9 @@ footer {
         flex-direction: column;
         align-items: stretch;
         width: 90%;
+        padding: 0 10px;
+        margin: 15px auto;
+        gap: 10px;
     }
     
     .search-input-group {
@@ -429,21 +448,27 @@ footer {
         display: flex;
         flex-direction: column;
         margin-left: 0;
+        gap: 10px;
+        width: 100%;
     }
     
     #professorSearch {
         width: 100%;
         font-size: 16px;
         padding: 10px;
+        border-radius: 6px;
     }
     
     #searchBtn, #displayProfessorsBtn {
         width: 100%;
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 0;
         font-size: 16px;
         padding: 10px;
         height: 50px;
+        border-radius: 6px;
+        text-shadow: 1px 1px 2px black;
+        border: 2px solid black;
     }
     
     .b8-table-container {
@@ -453,7 +478,7 @@ footer {
         overflow-x: auto;
     }
     
-    /* Match index.html footer styling */
+    /* Match reference footer styling */
     .footer-container {
         flex-direction: column;
     }
@@ -464,7 +489,7 @@ footer {
         margin: 15px 0;
     }
     
-    /* Match index.html sidebar styling */
+    /* Match reference sidebar styling */
     .sidebar {
         width: 0;
         padding-top: 50px;
@@ -481,9 +506,9 @@ footer {
     }
 }
 
-/* Small mobile devices - match index.html */
+/* Small mobile devices - match reference */
 @media screen and (max-width: 480px) {
-    .b8-btn, #searchBtn, #displayProfessorsBtn {
+    #searchBtn, #displayProfessorsBtn {
         font-size: 14px;
         padding: 8px;
         height: 45px;
