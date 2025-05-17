@@ -270,6 +270,7 @@ h2 {
     display: flex;
     gap: 10px; /* Space between buttons */
     align-items: center;
+    margin-left: 15px;
 }
 
 /* Button styling for desktop */
@@ -291,7 +292,9 @@ h2 {
     align-items: center;
     justify-content: center;
 }
-
+#searchBtn{
+    margin-right: 10px;
+}
 /* Search input styling */
 #professorSearch {
     width: 100%;
