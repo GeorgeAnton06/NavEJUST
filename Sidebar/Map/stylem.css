@@ -108,6 +108,130 @@ html, body {
     text-shadow: 2px 2px 4px black;
     margin-top: 20px;
 }
+
+/* Campus Map Styles */
+.campus-map-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campus-map {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+/* Building Selection Styles */
+.building-selection {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.building-selection h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.building-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.building-card {
+    width: 250px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
+}
+
+.building-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.building-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.b7-color {
+    background-color: #4285F4; /* Blue */
+}
+
+.b8-color {
+    background-color: #EA4335; /* Red */
+}
+
+.b9-color {
+    background-color: #FBBC05; /* Yellow */
+}
+
+.b10-color {
+    background-color: #34A853; /* Green */
+}
+
+.coe-color {
+    background-color: #8E44AD; /* Purple */
+}
+
+.building-card h3 {
+    color: #EC0E16;
+    margin: 15px 0 10px;
+}
+
+.floor-links {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+}
+
+.floor-links a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    transition: color 0.2s ease;
+}
+
+.floor-links a:hover {
+    color: #EC0E16;
+}
+
+.view-all-btn {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 8px 20px;
+    background-color: #EC0E16;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: #d00c13;
+}
+
 footer {
     background-color: #333;
     color: #fff;
@@ -127,7 +251,7 @@ footer {
     padding: 0 20px;
 }
 
-.footer-section {
+.footer-section{
     flex: 1;
     min-width: 200px;
     margin: 10px;
@@ -163,6 +287,7 @@ footer {
 }
 
 .footer-bottom {
+
     text-align: center;
     padding: 10px 20px;
     border-top: 1px solid #444;
