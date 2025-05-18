@@ -1,12 +1,13 @@
-<!-- Copyright © 2025 George Anton. All Rights Reserved.
+-- Copyright © 2025 George Anton. All Rights Reserved.
      Authorized use only for Egypt-Japan University of Science and Technology. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>B8</title>
     <link rel="stylesheet" href="b8.css">
+    <link rel="stylesheet" href="../building-styles.css">
     <style>
         .dropdown-container {
             display: none;
@@ -15,7 +16,6 @@
             transition: max-height 0.3s ease-out;
         }
     </style>
-    
 </head>
 <body>
     <div class="page-container">
@@ -44,59 +44,99 @@
             
             <div class="content-area">
                 <h1 class="page-title">B8</h1>
+                
                 <h2>Overview</h2>
                 <div id="ov">
-                <p>Welcome to B8 !!
-                    <br>
-                    The B8 building is the central hub for the Faculty of Engineering at E-JUST, featuring lecture halls, modern labs, and faculty offices. It supports hands-on learning and research in fields
-                    <br>
-                    <b>Opening Hours:</b> Sunday to Thursday, 9:00 AM – 3:45 PM
-                </p>
+                    <p>Welcome to B8 !!
+                        <br>
+                        The B8 building is the central hub for the Faculty of Engineering at E-JUST, featuring lecture halls, modern labs, and faculty offices. It supports hands-on learning and research in fields
+                        <br>
+                        <b>Opening Hours:</b> Sunday to Thursday, 9:00 AM – 3:45 PM
+                    </p>
                 </div>
-            <h2>Want to learn more about Professors here?</h2>
-<div class="search-container">
-    <div class="search-input-group">
-        <input type="text" id="professorSearch" placeholder="Search professors...">
-        <div id="autocompleteResults"></div>
-    </div>
-    <div class="button-group">
-        <button id="searchBtn" class="b8-btn">Search</button>
-        <button id="displayProfessorsBtn" class="b8-btn">Show All Professors</button>
-    </div>
-</div>
-
-            <div id="professorsTableContainer" class="b8-table-container"></div>           
-        <footer>
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h4>Our Campus</h4>
-                    <p>P.O. Box 179, New Borg El-Arab City<br>
-                    Postal Code 21934, Alexandria, Egypt<br>
-                    Phone: 16448<br>
-                    Fax: 03-4600004</p>
+                
+                <!-- Floor Plans Section -->
+                <h2>Floor Plans</h2>
+                <div class="floor-section">
+                    <div class="floor-navigation">
+                         <button class="floor-btn b8-btn" onclick="showFloor('ground')">Ground Floor</button>
+                        <button class="floor-btn b8-btn" onclick="showFloor('first')">First Floor</button>
+                        <button class="floor-btn b8-btn" onclick="showFloor('second')">Second Floor</button>
+                    </div>
+                    
+                    <div id="floor-container" class="floor-container" style="display: none;">
+                        <div id="ground-floor" class="floor-map">
+                            <img src="images/b8-ground.jpg" alt="B8 Ground Floor" class="floor-image">
+                            <div class="floor-info">
+                                <h3>Ground Floor</h3>
+                                <p>Key facilities: Main Entrance, Lecture Halls, Student Services</p>
+                            </div>
+                        </div>
+                        
+                        <div id="first-floor" class="floor-map">
+                            <img src="images/b8-first.jpg" alt="B8 First Floor" class="floor-image">
+                            <div class="floor-info">
+                                <h3>First Floor</h3>
+                                <p>Key facilities: Faculty Offices, Conference Rooms</p>
+                            </div>
+                        </div>
+                        
+                        <div id="second-floor" class="floor-map">
+                            <img src="images/b8-second.jpg" alt="B8 Second Floor" class="floor-image">
+                            <div class="floor-info">
+                                <h3>Second Floor</h3>
+                                <p>Key facilities: Research Labs, Graduate Student Areas</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Business Hours</h4>
-                    <p>Sunday - Thursday<br>
-                    09:00 am - 04:00 pm</p>
+                
+                <h2>Want to learn more about Professors here?</h2>
+                <div class="search-container">
+                    <div class="search-input-group">
+                        <input type="text" id="professorSearch" placeholder="Search professors...">
+                        <div id="autocompleteResults"></div>
+                    </div>
+                    <div class="button-group">
+                        <button id="searchBtn" class="b8-btn">Search</button>
+                        <button id="displayProfessorsBtn" class="b8-btn">Show All Professors</button>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Cairo Office</h4>
-                    <p>Concordia Building, B2111, Smart Village,<br>
-                    Cairo-Alex Road.<br>
-                    Postal Code 12577, Giza, Egypt<br>
-                    Phone: +2 35371712 / 35371713</p>
-                </div>
+                
+                <div id="professorsTableContainer" class="b8-table-container"></div>
             </div>
-            <div class="footer-bottom">
-                <p>Made By EJUST Students for EJUST students </p>
-            </div>
-        </footer>
+            
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h4>Our Campus</h4>
+                        <p>P.O. Box 179, New Borg El-Arab City<br>
+                        Postal Code 21934, Alexandria, Egypt<br>
+                        Phone: 16448<br>
+                        Fax: 03-4600004</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Business Hours</h4>
+                        <p>Sunday - Thursday<br>
+                        09:00 am - 04:00 pm</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Cairo Office</h4>
+                        <p>Concordia Building, B2111, Smart Village,<br>
+                        Cairo-Alex Road.<br>
+                        Postal Code 12577, Giza, Egypt<br>
+                        Phone: +2 35371712 / 35371713</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>Made By EJUST Students for EJUST students </p>
+                </div>
+            </footer>
+        </div>
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script src="B8.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="B8.js"></script>
     <script>
         function toggleDropdown() {
             let dropdown = document.getElementById("buildingDropdown");
@@ -108,6 +148,88 @@
                 setTimeout(() => dropdown.style.display = "none", 300);
             }
         }
+        
+        // Floor plan visibility state
+        let floorPlanVisible = false;
+        
+        function showFloor(floorId) {
+            // Show floor container if it was hidden
+            if (!floorPlanVisible) {
+                document.getElementById('floor-container').classList.add('fade-in');
+                document.getElementById('floor-container').classList.remove('fade-out');
+                document.getElementById('floor-container').style.display = 'block';
+                floorPlanVisible = true;
+            }
+            
+            // Hide all floors
+            document.querySelectorAll('.floor-map').forEach(floor => {
+                floor.classList.remove('active');
+            });
+            
+            // Show selected floor
+            document.getElementById(floorId + '-floor').classList.add('active');
+            
+            // Update button states
+            document.querySelectorAll('.floor-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // Update URL hash without scrolling
+            const currentUrl = window.location.href.split('#')[0];
+            history.replaceState(null, null, currentUrl + '#' + floorId + '-floor');
+        }
+        
+        // Check for URL hash to show specific floor
+        document.addEventListener('DOMContentLoaded', function() {
+            if(window.location.hash) {
+                const floorId = window.location.hash.substring(1);
+                if(document.getElementById(floorId)) {
+                    const floorName = floorId.replace('-floor', '');
+                    
+                    // Find and activate the correct button
+                    document.querySelectorAll('.floor-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                        if(btn.textContent.toLowerCase().includes(floorName)) {
+                            btn.classList.add('active');
+                        }
+                    });
+                    
+                    // Show the selected floor
+                    document.querySelectorAll('.floor-map').forEach(floor => {
+                        floor.classList.remove('active');
+                    });
+                    document.getElementById(floorId).classList.add('active');
+                    
+                    // Scroll to the floor section
+                    document.querySelector('.floor-navigation').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+        
+        // Hide floor plans when clicking outside
+        document.addEventListener('click', function(event) {
+            if (
+                floorPlanVisible &&
+                !event.target.closest('.floor-btn') &&
+                !event.target.closest('#floor-container') &&
+                !event.target.closest('h2')
+            ) {
+                document.getElementById('floor-container').classList.remove('fade-in');
+                document.getElementById('floor-container').classList.add('fade-out');
+                floorPlanVisible = false;
+            }
+        });
+        
+        // After fade-out transition, hide the floor container
+        document.getElementById('floor-container').addEventListener('transitionend', function(e) {
+            if (!floorPlanVisible && this.classList.contains('fade-out')) {
+                this.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
