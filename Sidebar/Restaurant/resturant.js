@@ -54,7 +54,7 @@ if (document.querySelector('.close-btn')) {
         let html = '<table><tr><th>Name</th><th>Location</th></tr>';
         
         if (professors.length === 0) {
-            html += '<tr><td colspan="2">No professors found</td></tr>';
+            html += '<tr><td colspan="2">No resturants found</td></tr>';
         } else {
             professors.forEach(row => {
                 const [name, location] = row;
@@ -72,7 +72,7 @@ if (document.querySelector('.close-btn')) {
             event.stopPropagation();
             
             // Show loading indicator
-            tableContainer.innerHTML = '<p>Loading professors...</p>';
+            tableContainer.innerHTML = '<p>Loading resturants...</p>';
             tableContainer.classList.remove('fade-out');
             tableContainer.classList.add('fade-in');
             tableContainer.style.display = 'block';
