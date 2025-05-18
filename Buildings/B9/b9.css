@@ -98,8 +98,7 @@ html {
 
 /* Fixed-size header image that doesn't disappear */
 .header-image {
-    position: sticky;
-    top: 0;
+    position: relative; /* Change from sticky to relative */
     width: 100%;
     height: 50vh; /* Adjust as needed */
     background: url('cover.jpg') no-repeat center center;
@@ -163,10 +162,10 @@ h2 {
   font-weight: bold;
 }
 
-.b8-btn:hover {
-  background: white;
-  color: #EC0E16;
-  border: 2px solid #EC0E16;
+.b8-btn:hover, .floor-btn:hover {
+   background: white !important;
+  color: #EC0E16 !important;
+  border: 2px solid #EC0E16 !important;
 }
 
 .b8-popup {
@@ -361,7 +360,298 @@ h2 {
 .autocomplete-item .suggestion-text {
     flex-grow: 1;
 }
+/* Floor Section Container */
+.floor-section {
+    margin: 20px 5%;
+    position: relative;
+}
 
+/* Floor Navigation Styles */
+.floor-navigation {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Floor buttons use the existing b8-btn class for consistency */
+.floor-btn {
+    /* Base styles inherited from b8-btn */
+    /* Additional styles specific to floor buttons */
+    min-width: 120px;
+    margin-bottom: 10px;
+}
+
+/* Floor Container and Maps */
+.floor-container {
+    width: 100%;
+    margin: 0 auto 40px;
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.floor-container.fade-in {
+    display: block;
+    opacity: 1;
+}
+
+.floor-container.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.floor-map {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.floor-map.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.floor-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border: 2px solid #EC0E16;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Floor Information */
+.floor-info {
+    width: 100%;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.floor-info h3 {
+    color: #EC0E16;
+    margin-top: 0;
+    font-size: 22px;
+    border-bottom: 2px solid #EC0E16;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.floor-info p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .floor-navigation {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+    }
+    
+    .floor-btn {
+        flex: 0 0 auto;
+        font-size: 14px;
+        padding: 8px 15px;
+        min-width: 100px;
+    }
+    
+    .floor-image {
+        border-width: 1px;
+    }
+    
+    .floor-info {
+        padding: 15px;
+    }
+    
+    .floor-info h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floor-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+        min-width: 80px;
+    }
+    
+    .floor-info {
+        padding: 12px;
+    }
+    
+    .floor-info h3 {
+        font-size: 16px;
+    }
+}
+/* Floor Navigation Styles */
+.floor-navigation {
+    display: flex;
+    justify-content: center;
+    margin: 20px 5%;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.floor-btn {
+    margin-right: 10px;
+    min-width: 120px;
+}
+
+.floor-btn:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+
+.floor-btn.active {
+    background-color: #EC0E16;
+    color: white;
+    border-color: black;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Floor Container and Maps */
+.floor-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    position: relative;
+}
+
+.floor-map {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.floor-map.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.floor-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border: 2px solid #EC0E16;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Floor Information */
+.floor-info {
+    width: 100%;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.floor-info h3 {
+    color: #EC0E16;
+    margin-top: 0;
+    font-size: 22px;
+    border-bottom: 2px solid #EC0E16;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.floor-info p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.room-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.room-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.room-list li:last-child {
+    border-bottom: none;
+}
+
+.room-list li strong {
+    color: #333;
+    margin-right: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .floor-navigation {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+        margin: 15px 5%;
+    }
+    
+    .floor-btn {
+        flex: 0 0 auto;
+        font-size: 14px;
+        padding: 8px 15px;
+        min-width: 100px;
+    }
+    
+    .floor-image {
+        border-width: 1px;
+    }
+    
+    .floor-info {
+        padding: 15px;
+    }
+    
+    .floor-info h3 {
+        font-size: 18px;
+    }
+    
+    .room-list li {
+        padding: 6px 0;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floor-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+        min-width: 80px;
+    }
+    
+    .floor-info {
+        padding: 12px;
+    }
+    
+    .floor-info h3 {
+        font-size: 16px
+    }
+}
 footer {
     background-color: #333;
     color: #fff;
@@ -560,7 +850,11 @@ footer {
         padding: 6px 10px;
         font-size: 14px;
     }
-    
+     .floor-btn:hover, .b8-btn:hover {
+        background: white;
+        color: #EC0E16;
+        border: 2px solid #EC0E16;
+    }
     /* Mobile footer styling */
     .footer-container {
         flex-direction: column;
