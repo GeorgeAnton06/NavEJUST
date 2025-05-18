@@ -131,8 +131,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="B7.js"></script>
-
-    <script>
+<script>
         function toggleDropdown() {
             let dropdown = document.getElementById("buildingDropdown");
             if (dropdown.style.maxHeight === "0px" || dropdown.style.maxHeight === "") {
@@ -143,6 +142,79 @@
                 setTimeout(() => dropdown.style.display = "none", 300);
             }
         }
+        
+        // Floor plan visibility state
+        let floorPlanVisible = false;
+        
+        function showFloor(floorId) {
+            // Show floor container if it was hidden
+            if (!floorPlanVisible) {
+                document.getElementById('floor-container').classList.add('fade-in');
+                document.getElementById('floor-container').classList.remove('fade-out');
+                document.getElementById('floor-container').style.display = 'block';
+                floorPlanVisible = true;
+            }
+            
+            // Hide all floors
+            document.querySelectorAll('.floor-map').forEach(floor => {
+                floor.classList.remove('active');
+            });
+            
+            // Show selected floor
+            document.getElementById(floorId + '-floor').classList.add('active');
+            
+            // Update button states
+            document.querySelectorAll('.floor-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // Update URL hash without scrolling
+            const currentUrl = window.location.href.split('#')[0];
+            history.replaceState(null, null, currentUrl + '#' + floorId + '-floor');
+        }
+        
+// Check for URL hash to show specific floor
+document.addEventListener('DOMContentLoaded', function() {
+    if(window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        
+        // Check if the hash corresponds to a floor
+        if(hash.includes('floor')) {
+            const floorName = hash.replace('-floor', '');
+            
+            // Find the corresponding button and click it
+            document.querySelectorAll('.floor-btn').forEach(btn => {
+                if(btn.textContent.toLowerCase().includes(floorName)) {
+                    btn.click(); // This will activate the floor
+                }
+            });
+        }
+    }
+    // If no hash in URL, do nothing - floors remain inactive
+});
+
+        
+        // Hide floor plans when clicking outside
+        document.addEventListener('click', function(event) {
+            if (
+                floorPlanVisible &&
+                !event.target.closest('.floor-btn') &&
+                !event.target.closest('#floor-container') &&
+                !event.target.closest('h2')
+            ) {
+                document.getElementById('floor-container').classList.remove('fade-in');
+                document.getElementById('floor-container').classList.add('fade-out');
+                floorPlanVisible = false;
+            }
+        });
+        
+        // After fade-out transition, hide the floor container
+        document.getElementById('floor-container').addEventListener('transitionend', function(e) {
+            if (!floorPlanVisible && this.classList.contains('fade-out')) {
+                this.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
