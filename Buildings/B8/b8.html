@@ -1,4 +1,4 @@
--- Copyright © 2025 George Anton. All Rights Reserved.
+<!-- Copyright © 2025 George Anton. All Rights Reserved.
      Authorized use only for Egypt-Japan University of Science and Technology. -->
 <!DOCTYPE html>
 <html lang="en">
@@ -180,35 +180,26 @@
             history.replaceState(null, null, currentUrl + '#' + floorId + '-floor');
         }
         
-        // Check for URL hash to show specific floor
-        document.addEventListener('DOMContentLoaded', function() {
-            if(window.location.hash) {
-                const floorId = window.location.hash.substring(1);
-                if(document.getElementById(floorId)) {
-                    const floorName = floorId.replace('-floor', '');
-                    
-                    // Find and activate the correct button
-                    document.querySelectorAll('.floor-btn').forEach(btn => {
-                        btn.classList.remove('active');
-                        if(btn.textContent.toLowerCase().includes(floorName)) {
-                            btn.classList.add('active');
-                        }
-                    });
-                    
-                    // Show the selected floor
-                    document.querySelectorAll('.floor-map').forEach(floor => {
-                        floor.classList.remove('active');
-                    });
-                    document.getElementById(floorId).classList.add('active');
-                    
-                    // Scroll to the floor section
-                    document.querySelector('.floor-navigation').scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+// Check for URL hash to show specific floor
+document.addEventListener('DOMContentLoaded', function() {
+    if(window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        
+        // Check if the hash corresponds to a floor
+        if(hash.includes('floor')) {
+            const floorName = hash.replace('-floor', '');
+            
+            // Find the corresponding button and click it
+            document.querySelectorAll('.floor-btn').forEach(btn => {
+                if(btn.textContent.toLowerCase().includes(floorName)) {
+                    btn.click(); // This will activate the floor
                 }
-            }
-        });
+            });
+        }
+    }
+    // If no hash in URL, do nothing - floors remain inactive
+});
+
         
         // Hide floor plans when clicking outside
         document.addEventListener('click', function(event) {
