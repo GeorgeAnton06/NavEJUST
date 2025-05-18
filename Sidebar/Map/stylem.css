@@ -299,7 +299,7 @@ footer {
     margin: 5px 0;
     font-weight: bold;
 }
-/* Mobile responsiveness - added from b8.css */
+/* Mobile responsiveness - completely revised based on reference CSS */
 @media screen and (max-width: 768px) {
     /* General mobile adjustments */
     * {
@@ -316,12 +316,6 @@ footer {
     body {
         overflow-x: hidden;
         width: 100%;
-    }
-    
-    /* Ensure content doesn't overflow */
-    .content-area {
-        width: 100%;
-        overflow-x: hidden;
     }
     
     .page-title {
@@ -424,6 +418,11 @@ footer {
         font-size: 1.7rem;
         letter-spacing: 1px;
     }
+    
+    /* Header image */
+    .header-image {
+        height: 25vh;
+    }
 }
 
 /* iOS-specific fixes */
@@ -438,3 +437,4 @@ footer {
         font-size: 16px; /* Prevents iOS from zooming on input focus */
     }
 }
+
